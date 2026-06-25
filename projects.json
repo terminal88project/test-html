@@ -1,0 +1,23 @@
+[
+  {
+    "title": "پروژه اول",
+    "description": "یک اپلیکیشن ساده برای مدیریت کارها",
+    "links": [
+      "https://github.com/yourusername/project1",
+      "https://example.com/demo"
+    ]
+  },
+  {
+    "title": "داشبورد تحلیل داده",
+    "description": "داشبورد تعاملی با چارت‌های زنده",
+    "links": [
+      { "url": "https://github.com/yourusername/dashboard", "label": "گیت‌هاب" },
+      { "url": "https://dashboard-demo.com", "label": "نسخه زنده" }
+    ]
+  },
+  {
+    "title": "ابزار خط فرمان",
+    "description": "اسکریپت پایتون برای اتوماسیون",
+    "links": "https://github.com/yourusername/cli-tool"
+  }
+]
