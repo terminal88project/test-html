@@ -1,23 +1,58 @@
 [
   {
-    "title": "پروژه اولین کار من",
-    "description": "یک اپلیکیشن ساده برای مدیریت کارها",
+    "title": "داشبورد مدیریت فروش",
+    "description": "داشبورد تعاملی با نمودارهای زنده، فیلترهای پیشرفته و گزارش‌گیری خودکار برای تیم‌های فروش.",
+    "thumbnail": "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Dashboard",
+    "emoji": "📊",
+    "status": "فعال",
+    "date": "۱۴۰۴/۰۴/۰۱",
+    "category": "تحلیل داده",
+    "tags": ["React", "Chart.js", "Tailwind", "API"],
+    "url": "https://my-dashboard.com",
     "links": [
-      "https://github.com/yourusername/project1",
-      "https://example.com/demo"
+      { "url": "https://github.com/username/dashboard", "label": "گیت‌هاب", "icon": "🐙" },
+      { "url": "https://demo.dashboard.com", "label": "نسخه زنده", "icon": "🌐" },
+      { "url": "https://youtu.be/xxx", "label": "ویدئو معرفی", "icon": "🎬" }
     ]
   },
   {
-    "title": "داشبورد تحلیل داده",
-    "description": "داشبورد تعاملی با چارت‌های زنده",
+    "title": "اپلیکیشن مدیریت پروژه",
+    "description": "ابزار مدیریت تسک‌ها با قابلیت تیم‌سازی، تخصیص وظایف و پیگیری پیشرفت به صورت لحظه‌ای.",
+    "thumbnail": "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=PM+Tool",
+    "emoji": "✅",
+    "status": "در حال توسعه",
+    "date": "۱۴۰۴/۰۳/۱۵",
+    "category": "مدیریت",
+    "tags": ["Next.js", "Prisma", "PostgreSQL", "Socket.io"],
     "links": [
-      { "url": "https://github.com/yourusername/dashboard", "label": "گیت‌هاب" },
-      { "url": "https://dashboard-demo.com", "label": "نسخه زنده" }
+      { "url": "https://github.com/username/pm-app", "label": "مخزن", "icon": "📦" }
     ]
   },
   {
-    "title": "ابزار خط فرمان",
-    "description": "اسکریپت پایتون برای اتوماسیون",
-    "links": "https://github.com/yourusername/cli-tool"
+    "title": "پلتفرم دوره‌های آموزشی",
+    "description": "سیستم مدیریت محتوای آموزشی با پشتیبانی از ویدئو، آزمون‌های تعاملی و گواهینامه‌دهی خودکار.",
+    "emoji": "🎓",
+    "status": "به‌روزرسانی شده",
+    "date": "۱۴۰۴/۰۲/۲۸",
+    "category": "آموزش",
+    "tags": ["Vue.js", "Laravel", "MySQL", "Redis"],
+    "url": "https://learn.example.com",
+    "links": [
+      { "url": "https://github.com/username/learning-platform", "label": "گیت‌هاب", "icon": "🐙" },
+      { "url": "https://learn.example.com", "label": "وبسایت", "icon": "🌍" }
+    ]
+  },
+  {
+    "title": "ربات هوشمند تلگرام",
+    "description": "ربات تلگرام برای مدیریت گروه، پاسخ‌گویی خودکار، و تحلیل رفتار کاربران با هوش مصنوعی.",
+    "thumbnail": "https://via.placeholder.com/600x400/ef4444/ffffff?text=Telegram+Bot",
+    "emoji": "🤖",
+    "date": "۱۴۰۴/۰۱/۲۰",
+    "category": "هوش مصنوعی",
+    "tags": ["Python", "AI", "Telegram API", "MongoDB"],
+    "links": [
+      { "url": "https://github.com/username/telegram-bot", "label": "سورس کد", "icon": "💻" },
+      { "url": "https://t.me/my_bot", "label": "ربات در تلگرام", "icon": "✈️" }
+    ]
   }
 ]
