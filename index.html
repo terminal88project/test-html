@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>پروژه‌های من</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>پرتفولیو | پروژه‌های من</title>
   <style>
-    /* Reset & base */
+    /* reset */
     * {
       margin: 0;
       padding: 0;
@@ -13,267 +13,491 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      background: #f8fafc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #f1f5f9;
       color: #0f172a;
       min-height: 100vh;
+      padding: 2rem 1.5rem;
       display: flex;
       justify-content: center;
-      padding: 2rem 1rem;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1300px;
       width: 100%;
     }
 
-    h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      letter-spacing: -0.02em;
-      color: #0f172a;
+    /* header */
+    .header {
+      margin-bottom: 3rem;
+      text-align: center;
     }
 
-    /* grid cards */
-    .card-grid {
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #0f172a 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p {
+      color: #64748b;
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* grid */
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
     }
 
-    .card {
-      background: white;
-      border-radius: 1rem;
-      padding: 1.5rem 1.25rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-      transition: 0.2s ease;
+    /* card */
+    .project-card {
+      background: #ffffff;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       border: 1px solid #e9edf2;
       display: flex;
       flex-direction: column;
     }
 
-    .card:hover {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-      border-color: #d0d8e0;
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: #cbd5e1;
+    }
+
+    /* thumbnail */
+    .card-thumbnail {
+      width: 100%;
+      height: 200px;
+      background: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #94a3b8;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .card-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-thumbnail .emoji-placeholder {
+      font-size: 4rem;
+      opacity: 0.6;
+    }
+
+    /* badge (status) */
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(4px);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    /* content */
+    .card-content {
+      padding: 1.5rem 1.5rem 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
+      font-size: 1.3rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
       color: #0f172a;
+      line-height: 1.3;
     }
 
-    .card-desc {
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .card-title a:hover {
+      color: #2563eb;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .card-meta .date {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .card-meta .category {
+      background: #f1f5f9;
+      padding: 0.15rem 0.6rem;
+      border-radius: 50px;
+      color: #475569;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+
+    .card-description {
       font-size: 0.95rem;
       color: #334155;
-      line-height: 1.5;
-      margin-bottom: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
       flex: 1;
     }
 
+    /* tags */
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-tags span {
+      background: #f1f5f9;
+      color: #475569;
+      padding: 0.15rem 0.6rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      border: 1px solid #e9edf2;
+    }
+
+    /* links */
     .card-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem 0.75rem;
-      margin-top: auto;
-      padding-top: 0.5rem;
+      gap: 0.5rem;
+      padding-top: 1rem;
       border-top: 1px solid #f0f2f5;
+      margin-top: auto;
     }
 
     .card-links a {
-      color: #2563eb;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
       display: inline-flex;
       align-items: center;
-      gap: 0.2rem;
-      transition: 0.15s;
+      gap: 0.3rem;
+      padding: 0.3rem 0.8rem;
+      background: #f8fafc;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1e293b;
+      text-decoration: none;
+      border: 1px solid #e9edf2;
+      transition: all 0.15s;
     }
 
     .card-links a:hover {
-      color: #1d4ed8;
-      text-decoration: underline;
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
+      transform: scale(1.02);
     }
 
-    .card-links a::before {
-      content: "🔗";
-      font-size: 0.75rem;
-      opacity: 0.7;
+    .card-links .link-icon {
+      font-size: 0.9rem;
     }
 
-    /* empty state */
+    /* empty & loading */
     .empty-state {
+      grid-column: 1 / -1;
       text-align: center;
-      padding: 4rem 1rem;
-      color: #64748b;
+      padding: 4rem 2rem;
       background: white;
       border-radius: 1.5rem;
-      border: 1px dashed #d4dce6;
+      border: 2px dashed #d4dce6;
+    }
+
+    .empty-state .big-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .empty-state h3 {
+      font-size: 1.3rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
     }
 
     .empty-state p {
-      font-size: 1rem;
-    }
-
-    /* loading */
-    .loading {
-      text-align: center;
-      padding: 3rem;
       color: #64748b;
+      font-size: 0.95rem;
     }
 
-    /* footer */
-    .footer-note {
-      margin-top: 3rem;
-      font-size: 0.8rem;
-      color: #94a3b8;
-      text-align: center;
-      border-top: 1px solid #eef2f6;
-      padding-top: 1.5rem;
+    .empty-state code {
+      background: #f1f5f9;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    /* responsive */
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem;
+      }
+      .header h1 {
+        font-size: 2rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .card-thumbnail {
+        height: 170px;
+      }
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>📁 پروژه‌ها</h1>
-
-  <div id="projectGrid" class="card-grid">
-    <!-- cards injected by JS -->
+  <!-- header -->
+  <div class="header">
+    <h1>🚀 پروژه‌های من</h1>
+    <p>نمونه کارها و پروژه‌های توسعه‌یافته</p>
   </div>
 
-  <div class="footer-note">
-    داده‌ها از فایل <code>projects.json</code> بارگذاری می‌شوند
+  <!-- grid -->
+  <div id="projectsGrid" class="projects-grid">
+    <!-- cards injected by JS -->
   </div>
 </div>
 
 <script>
   (function() {
-    const grid = document.getElementById('projectGrid');
+    const grid = document.getElementById('projectsGrid');
 
+    // helper: ساخت کارت
+    function createCard(project) {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+
+      // ------ thumbnail ------
+      const thumb = document.createElement('div');
+      thumb.className = 'card-thumbnail';
+
+      // اگه تامنیل تصویر داره
+      if (project.thumbnail) {
+        const img = document.createElement('img');
+        img.src = project.thumbnail;
+        img.alt = project.title || 'پروژه';
+        img.loading = 'lazy';
+        thumb.appendChild(img);
+      } else {
+        // ایموجی به جای تامنیل
+        const emoji = document.createElement('span');
+        emoji.className = 'emoji-placeholder';
+        emoji.textContent = project.emoji || '📁';
+        thumb.appendChild(emoji);
+      }
+
+      // badge (وضعیت)
+      if (project.status) {
+        const badge = document.createElement('span');
+        badge.className = 'card-badge';
+        badge.textContent = project.status;
+        thumb.appendChild(badge);
+      }
+
+      card.appendChild(thumb);
+
+      // ------ content ------
+      const content = document.createElement('div');
+      content.className = 'card-content';
+
+      // title (با لینک اختیاری)
+      const titleWrapper = document.createElement('div');
+      titleWrapper.className = 'card-title';
+
+      if (project.url) {
+        const link = document.createElement('a');
+        link.href = project.url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = project.title || 'بدون عنوان';
+        titleWrapper.appendChild(link);
+      } else {
+        titleWrapper.textContent = project.title || 'بدون عنوان';
+      }
+      content.appendChild(titleWrapper);
+
+      // meta: تاریخ + دسته‌بندی
+      const meta = document.createElement('div');
+      meta.className = 'card-meta';
+
+      if (project.date) {
+        const dateSpan = document.createElement('span');
+        dateSpan.className = 'date';
+        dateSpan.textContent = `📅 ${project.date}`;
+        meta.appendChild(dateSpan);
+      }
+
+      if (project.category) {
+        const catSpan = document.createElement('span');
+        catSpan.className = 'category';
+        catSpan.textContent = project.category;
+        meta.appendChild(catSpan);
+      }
+
+      if (meta.children.length > 0) {
+        content.appendChild(meta);
+      }
+
+      // description
+      if (project.description) {
+        const desc = document.createElement('p');
+        desc.className = 'card-description';
+        desc.textContent = project.description;
+        content.appendChild(desc);
+      }
+
+      // tags
+      if (project.tags && Array.isArray(project.tags) && project.tags.length > 0) {
+        const tagsContainer = document.createElement('div');
+        tagsContainer.className = 'card-tags';
+        project.tags.forEach(tag => {
+          const span = document.createElement('span');
+          span.textContent = tag;
+          tagsContainer.appendChild(span);
+        });
+        content.appendChild(tagsContainer);
+      }
+
+      // links
+      const linksContainer = document.createElement('div');
+      linksContainer.className = 'card-links';
+
+      const links = project.links || [];
+
+      if (Array.isArray(links) && links.length > 0) {
+        links.forEach(link => {
+          if (!link) return;
+
+          let href = link;
+          let label = link;
+          let icon = '🔗';
+
+          if (typeof link === 'object') {
+            href = link.url || link.href;
+            label = link.label || link.title || href;
+            icon = link.icon || '🔗';
+          }
+
+          if (href && typeof href === 'string' && href.startsWith('http')) {
+            const a = document.createElement('a');
+            a.href = href;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+
+            const iconSpan = document.createElement('span');
+            iconSpan.className = 'link-icon';
+            iconSpan.textContent = icon;
+            a.appendChild(iconSpan);
+
+            const textSpan = document.createTextNode(' ' + label);
+            a.appendChild(textSpan);
+
+            linksContainer.appendChild(a);
+          }
+        });
+      }
+
+      // اگه لینکی نبود، پیام جایگزین
+      if (linksContainer.children.length === 0) {
+        const empty = document.createElement('span');
+        empty.style.cssText = 'color: #94a3b8; font-size: 0.8rem;';
+        empty.textContent = '🔗 بدون لینک';
+        linksContainer.appendChild(empty);
+      }
+
+      content.appendChild(linksContainer);
+      card.appendChild(content);
+
+      return card;
+    }
+
+    // رندر کردن پروژه‌ها
+    function renderProjects(projects) {
+      grid.innerHTML = '';
+
+      if (!projects || projects.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state">
+            <div class="big-icon">📭</div>
+            <h3>هیچ پروژه‌ای پیدا نشد</h3>
+            <p>فایل <code>projects.json</code> را در کنار این صفحه قرار دهید.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+              ساختار کامل: <code>title, description, thumbnail, tags, links, date, category, status, url</code>
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      projects.forEach(project => {
+        const card = createCard(project);
+        grid.appendChild(card);
+      });
+    }
+
+    // بارگذاری از JSON
     async function loadProjects() {
       try {
-        // بارگذاری فایل JSON (همون‌جا باید باشه)
         const response = await fetch('projects.json');
 
         if (!response.ok) {
-          // اگه فایل نباشه یا خطا، خالی نشون بده
-          renderEmptyState();
+          renderProjects([]);
           return;
         }
 
         const data = await response.json();
 
-        // داده می‌تونه آرایه باشه یا آبجکت با کلید projects
+        // پشتیبانی از آرایه یا آبجکت با کلید projects
         let projects = Array.isArray(data) ? data : data.projects;
 
-        if (!projects || projects.length === 0) {
-          renderEmptyState();
+        if (!projects || !Array.isArray(projects)) {
+          renderProjects([]);
           return;
         }
 
-        renderCards(projects);
+        renderProjects(projects);
       } catch (error) {
-        // خطا در fetch یا parse
-        console.warn('خطا در بارگذاری پروژه‌ها:', error);
-        renderEmptyState();
+        console.warn('خطا در بارگذاری:', error);
+        renderProjects([]);
       }
     }
 
-    function renderCards(projects) {
-      grid.innerHTML = ''; // پاک کردن
-
-      projects.forEach((item) => {
-        const card = document.createElement('div');
-        card.className = 'card';
-
-        // عنوان – اختیاری
-        const title = item.title || 'بدون عنوان';
-        const titleEl = document.createElement('h2');
-        titleEl.className = 'card-title';
-        titleEl.textContent = title;
-        card.appendChild(titleEl);
-
-        // توضیح کوتاه – اختیاری
-        const desc = item.description || item.desc || '';
-        if (desc) {
-          const descEl = document.createElement('p');
-          descEl.className = 'card-desc';
-          descEl.textContent = desc;
-          card.appendChild(descEl);
-        } else {
-          // برای حفظ فاصله یک المان خالی
-          const placeholder = document.createElement('p');
-          placeholder.className = 'card-desc';
-          placeholder.style.opacity = '0.3';
-          placeholder.textContent = '—';
-          card.appendChild(placeholder);
-        }
-
-        // لینک‌ها – می‌تونه آرایه باشه یا یک رشته یا چندین لینک
-        const linksContainer = document.createElement('div');
-        linksContainer.className = 'card-links';
-
-        let links = item.links || item.link || [];
-
-        // اگه رشته باشه => تبدیل به آرایه
-        if (typeof links === 'string') {
-          links = [links];
-        }
-
-        // اگه آرایه نباشه => نادیده بگیر
-        if (Array.isArray(links) && links.length > 0) {
-          links.forEach((link) => {
-            if (!link) return;
-            // اگه لینک آبجکت باشه با url و label
-            let href = link;
-            let label = link;
-
-            if (typeof link === 'object' && link.url) {
-              href = link.url;
-              label = link.label || link.url;
-            }
-
-            // فقط لینک‌های معتبر
-            if (typeof href === 'string' && href.startsWith('http')) {
-              const a = document.createElement('a');
-              a.href = href;
-              a.target = '_blank';
-              a.rel = 'noopener noreferrer';
-              a.textContent = label.length > 30 ? label.slice(0, 28) + '…' : label;
-              linksContainer.appendChild(a);
-            }
-          });
-        } else {
-          // اگه لینکی نبود، یک جای خالی کوچک
-          const emptyLink = document.createElement('span');
-          emptyLink.style.color = '#cbd5e1';
-          emptyLink.style.fontSize = '0.8rem';
-          emptyLink.textContent = 'بدون لینک';
-          linksContainer.appendChild(emptyLink);
-        }
-
-        card.appendChild(linksContainer);
-        grid.appendChild(card);
-      });
-    }
-
-    function renderEmptyState() {
-      grid.innerHTML = `
-        <div class="empty-state" style="grid-column: 1 / -1;">
-          <p style="font-size: 1.1rem; margin-bottom: 0.25rem;">📭 پروژه‌ای یافت نشد</p>
-          <p style="font-size: 0.9rem;">فایل <code>projects.json</code> را در کنار این صفحه قرار دهید.</p>
-          <p style="font-size: 0.85rem; margin-top: 0.75rem; opacity: 0.6;">
-            ساختار: آرایه‌ای از آبجکت‌ها با کلیدهای <code>title</code>، <code>description</code> و <code>links</code>
-          </p>
-        </div>
-      `;
-    }
-
-    // اجرا
     loadProjects();
   })();
 </script>
